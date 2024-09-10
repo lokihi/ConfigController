@@ -1,0 +1,249 @@
+<div class="Config">
+	<style>.Tooltip
+		{
+			visibility: hidden;
+			opacity: 0;
+			background-color: rgb(160, 170, 180);
+			color: whitesmoke;
+			border-radius: 0.25em;
+			text-align: center;
+			padding: 0.5em;
+			bottom: -0.5em;
+			left: 105%;
+			position: absolute;
+			z-index: 1;
+			width: max-content;
+			max-width: 200px;
+		}
+	*[data-i-has-tooltip]
+		{
+			position: relative;
+			border-bottom: 1px dotted black;
+		}
+	*[data-i-has-tooltip]:hover > .Tooltip
+		{
+			visibility: visible;
+			opacity: 1;
+		}
+	.ConfigTitle
+		{
+			text-align: center;
+			font-size: 1.5em;
+			margin: 1em;
+		}
+	.InfoNamed
+		{
+			margin: 1em;
+		}
+	.InfoNamedValue
+		{
+			width: 100%;
+		}
+	.InfoNamedCaption
+		{
+			text-align: left;
+		}
+	.InfoNamedValue, .InfoNamedRow, .InfoNamedColumn
+		{
+			border: 1px solid black;
+			border-collapse: collapse;
+		}
+	.GroupParam
+		{
+			margin: 0.25em;
+			min-width: 0;
+		}
+	.GroupParam:hover
+		{
+			border: 2px solid lightskyblue;
+		}
+	.IpAddressParam
+		{
+			display: grid;
+			grid-template-columns: 50% 50%;
+			margin: 0.25em;
+			justify-items: start;
+		}
+	.IpAddressParamValue
+		{
+			width: 100%;
+		}
+	.IpAddressParam[data-i-draw-only-value]
+		{
+			grid-template-columns: 100%;
+			justify-items: center;
+		}
+	.PathParam
+		{
+			display: grid;
+			grid-template-columns: 50% 50%;
+			margin: 0.25em;
+			justify-items: start;
+		}
+	.PathParamValue
+		{
+			width: 100%;
+		}
+	.PathParam[data-i-draw-only-value]
+		{
+			grid-template-columns: 100%;
+			justify-items: center;
+		}
+	.NumericParam
+		{
+			display: grid;
+			grid-template-columns: 50% 50%;
+			margin: 0.25em;
+			justify-items: start;
+		}
+	.NumericParamValue
+		{
+			width: 100%;
+		}
+	.NumericParam[data-i-draw-only-value]
+		{
+			grid-template-columns: 100%;
+			justify-items: center;
+		}
+	.BoolParam
+		{
+			display: grid;
+			grid-template-columns: 50% 50%;
+			margin: 0.25em;
+			justify-items: start;
+		}
+	.BoolParam[data-i-draw-only-value]
+		{
+			grid-template-columns: 100%;
+			justify-items: center;
+		}
+	.ElementParam
+		{
+			display: grid;
+			grid-template-columns: 50% 50%;
+			margin: 0.25em;
+			justify-items: start;
+		}
+	.ElementParamValue
+		{
+			width: 100%;
+		}
+	.ElementParam[data-i-draw-only-value]
+		{
+			grid-template-columns: 100%;
+			justify-items: center;
+		}
+	</style>
+	<h2 class="ConfigTitle">DefaultConfig</h2>
+	<div class="InfoNamed">
+		<table class="InfoNamedValue">
+			<caption class="InfoNamedCaption">Свойства конфигурации</caption>
+			<tr class="InfoNamedRow" id="InfoNamedRow#0">
+				<td class="InfoNamedColumn" id="InfoNamedColumn#0">type</td>
+				<td class="InfoNamedColumn" id="InfoNamedColumn#1">Test</td>
+			</tr>
+		</table>
+	</div>
+	<fieldset class="GroupParam" id="GroupParam0" data-i-nested-param>
+		<legend class="GroupParamName" data-i-has-tooltip id="GroupParamName0">
+			Name
+			<span class="Tooltip">About</span>
+		</legend>
+		<div class="PathParam" id="PathParam1">
+			<label class="PathParamName" data-i-has-tooltip id="PathParamName1">
+				Name [Dimension]
+				<span class="Tooltip">About</span>
+			</label>
+			<input type="text" value="/root/test_folder/testfile.bat" class="PathParamValue" id="PathParamValue1" data-i-param-uid="1" data-i-param-value>
+		</div>
+		<div class="IpAddressParam" id="IpAddressParam2">
+			<label class="IpAddressParamName" id="IpAddressParamName2" data-i-has-tooltip>
+				Name [Dimension]
+				<span class="Tooltip">About</span>
+			</label>
+			<input type="text" class="IpAddressParamValue" minlength="7" maxlength="15" size="15" value="10.2.129.122" placeholder="0.0.0.0" required pattern="^((\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.){3}(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])$" id="IpAddressParamValue2" data-i-param-uid="2" data-i-param-value>
+		</div>
+		<fieldset class="GroupParam" id="GroupParam3" data-i-nested-param>
+			<legend class="GroupParamName" data-i-has-tooltip id="GroupParamName3">
+				Name
+				<span class="Tooltip">About</span>
+			</legend>
+			<div class="NumericParam" id="NumericParam4">
+				<label class="NumericParamName" data-i-has-tooltip id="NumericParamName4">
+					Name [Dimension]
+					<span class="Tooltip">About</span>
+				</label>
+				<input type="number" min="-100" class="NumericParamValue" data-i-param-uid="4" id="NumericParamValue4" data-i-param-value inputmode="numeric" value="90" max="100" step="10">
+			</div>
+			<div class="BoolParam" id="BoolParam5">
+				<label class="BoolParamName" id="BoolParamName5" data-i-has-tooltip>
+					Name [Dimension]
+					<span class="Tooltip">About</span>
+				</label>
+				<input type="checkbox" class="BoolParamValue" data-i-param-uid="5" id="BoolParamValue5" data-i-param-value checked>
+			</div>
+			<div class="ElementParam" id="ElementParam6">
+				<label class="ElementParamName" data-i-has-tooltip id="ElementParamName6">
+					Name [Dimension]
+					<span class="Tooltip">About</span>
+				</label>
+				<select class="ElementParamValue" id="ElementParamValue6" data-i-param-uid="6" data-i-param-value>
+					<option class="ElementParamOption" id="ElementParamOption6#1" selected>This</option>
+					<option class="ElementParamOption" id="ElementParamOption6#2">is</option>
+					<option class="ElementParamOption" id="ElementParamOption6#3">HardDecisions</option>
+				</select>
+			</div>
+		</fieldset>
+	</fieldset>
+	<script>
+		
+		const hdNumericScript4 = function(parentElement)
+		{
+			const switchToNumber = function(event)
+			{
+				const target = event.target;
+				const text = target.value.replace(/[^0-9\-]/g, "");
+				target.type = "number";
+				target.value = Number(text);
+			};
+			const switchToTextImpl = function(target)
+			{
+				target.type = "text";
+				let text = target.value.replace(/[^0-9\-]/g, "");
+				text = Number(text).toLocaleString('en');
+				target.value = text.replace(/,/g, "'");;
+			};
+			const switchToText = function(event)
+			{
+				switchToTextImpl(event.target);
+			};
+			const pasteFromClipboard = function(event)
+			{
+				event.preventDefault();
+				let text = event.clipboardData.getData("Text");
+				text = text.replace(/[^0-9\-]/g, "");
+				event.target.value = Number(text);
+			};
+			const addEventListenersForNumericFunction = function(parentElement)
+			{
+				for (let element of parentElement.querySelectorAll(".NumericParamValue"))
+				{
+					element.addEventListener("focus", switchToNumber);
+					element.addEventListener("blur", switchToText);
+					element.addEventListener("paste", pasteFromClipboard)
+					switchToTextImpl(element);
+				}
+			};
+			addEventListenersForNumericFunction(parentElement);
+		};
+	;
+		
+		const hdInitScripts4 = function(parentElement)
+		{
+			hdNumericScript4(parentElement);
+;
+		};
+	;
+		hdInitScripts4(parentElement.querySelector("#NumericParam4"));
+	</script>
+</div>
