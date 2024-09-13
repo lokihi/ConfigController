@@ -1,4 +1,4 @@
-const CustomParamAttributes = require('../configController/CustomParamAttributes.js')
+const CustomParamAttributes = require('../include/CustomParamAttributes.js');
 
 const ConfigController = function(parentElement)
 {
