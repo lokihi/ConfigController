@@ -3,7 +3,7 @@
     "jest": "^29.7.0"
   },
   "scripts": {
-    "test:testConfigController": "jest --testPathPattern=test/config"
+    "test:testConfigController": "jest --testPathPattern=test/config/Config"
   },
   "dependencies": {
     "dom-parser": "^1.1.5",
