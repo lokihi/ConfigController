@@ -1,0 +1,176 @@
+<div class="Config">
+	<style>.Tooltip
+		{
+			visibility: hidden;
+			opacity: 0;
+			background-color: rgb(160, 170, 180);
+			color: whitesmoke;
+			border-radius: 0.25em;
+			text-align: center;
+			padding: 0.5em;
+			bottom: -0.5em;
+			left: 105%;
+			position: absolute;
+			z-index: 1;
+			width: max-content;
+			max-width: 200px;
+		}
+	*[data-i-has-tooltip]
+		{
+			position: relative;
+			border-bottom: 1px dotted black;
+		}
+	*[data-i-has-tooltip]:hover > .Tooltip
+		{
+			visibility: visible;
+			opacity: 1;
+		}
+	.ConfigTitle
+		{
+			text-align: center;
+			font-size: 1.5em;
+			margin: 1em;
+		}
+	.InfoNamed
+		{
+			margin: 1em;
+		}
+	.InfoNamedValue
+		{
+			width: 100%;
+		}
+	.InfoNamedCaption
+		{
+			text-align: left;
+		}
+	.InfoNamedValue, .InfoNamedRow, .InfoNamedColumn
+		{
+			border: 1px solid black;
+			border-collapse: collapse;
+		}
+	.ByteArrayParam
+		{
+			display: grid;
+			grid-template-columns: 50% 50%;
+			margin: 0.25em;
+			justify-items: start;
+		}
+	.ByteArrayParamWrapper
+		{
+			display: grid;
+			grid-template-columns: 25% 75%;
+			overflow: hidden;
+		}
+	</style>
+	<h2 class="ConfigTitle">DefaultConfig</h2>
+	<div class="InfoNamed">
+		<table class="InfoNamedValue">
+			<caption class="InfoNamedCaption">Свойства конфигурации</caption>
+			<tr class="InfoNamedRow" id="InfoNamedRow#0">
+				<td class="InfoNamedColumn" id="InfoNamedColumn#0">type</td>
+				<td class="InfoNamedColumn" id="InfoNamedColumn#1">Test</td>
+			</tr>
+		</table>
+	</div>
+	<div class="ByteArrayParam" id="ByteArrayParam0">
+		<a class="ByteArrayParamName" data-i-has-tooltip href="#" id="ByteArrayParamName0" download="Name">
+			Name
+			<span class="Tooltip">About</span>
+		</a>
+		<div class="ByteArrayParamWrapper" id="ByteArrayParamWrapper0">
+			<button type="button" class="ByteArrayParamClearValue" id="ByteArrayParamClearValue0">x</button>
+			<input type="file" class="ByteArrayParamValue" id="ByteArrayParamValue0">
+			<input type="hidden" data-i-param-uid="0" data-i-param-value value="AAECAwQFBgcICQoLDA0ODxAREhMUFRYXGBkaGxwdHh8gISIjJCUmJygpKissLS4vMDEyMzQ1Njc4OTo7PD0+P0BBQkNERUZHSElKS0xNTk9QUVJTVFVWV1hZWltcXV5fYGFiYw==">
+		</div>
+	</div>
+	<script>
+		
+		const hdByteArrayScript0 = function(parentElement)
+		{
+			function fromBase64(base64)
+			{
+				const binString = atob(base64);
+				return Uint8Array.from(binString, (m) => m.codePointAt(0));
+			};
+			function toBase64(buffer)
+			{
+				const bytes = new Uint8Array(buffer);
+				const binString = Array.from(bytes, (byte) =>
+					String.fromCodePoint(byte),
+				).join("");
+				return btoa(binString);
+			};
+			const clearValueFunction = function(event)
+			{
+				const target = event.target;
+				const input = target.parentNode.querySelector("input");
+				input.value = "";
+				input.disabled = false;
+				const dataElement = target.parentNode.children[2];
+				dataElement.value = "";
+			};
+			const downloadDataFunction = function(event)
+			{
+				event.preventDefault();
+				const target = event.target;
+				const dataElement = target.parentNode.children[1].children[2];
+				const blob = new Blob([fromBase64(dataElement.value)], {type: "application/octet-stream"});
+				let link = document.createElement("a");
+				link.download = target.download;
+				link.href = URL.createObjectURL(blob);
+				link.click();
+				return false;
+			};
+			const readData = async function(file, callback)
+			{
+				await new Promise(function(resolve)
+				{
+					const fileReader = new FileReader();
+					fileReader.onload = function(event)
+					{
+						const buffer = event.target.result;
+						callback(toBase64(buffer));
+						resolve();
+					}
+					fileReader.readAsArrayBuffer(file);
+				});
+			};
+			const uploadDataFunction = function(event)
+			{
+				const target = event.target;
+				event.target.disabled = true;
+				let dataElement = target.parentNode.children[2];
+				readData(target.files[0], function(data)
+				{
+					dataElement.value = data;
+					event.target.disabled = false;
+				});
+			};
+			const addEventListenersForByteArrayFunction = function(parentElement)
+			{
+				for (let clearValueButton of parentElement.querySelectorAll(".ByteArrayParamClearValue"))
+				{
+					clearValueButton.addEventListener("click", clearValueFunction);
+				}
+				for (let downloadDataButton of parentElement.querySelectorAll(".ByteArrayParamName"))
+				{
+					downloadDataButton.addEventListener("click", downloadDataFunction);
+				}
+				for (let inputFileNameButton of parentElement.querySelectorAll(".ByteArrayParamValue"))
+				{
+					inputFileNameButton.addEventListener("change", uploadDataFunction);
+				}
+			};
+			addEventListenersForByteArrayFunction(parentElement);
+		};
+	;
+		
+		const hdInitScripts0 = function(parentElement)
+		{
+			hdByteArrayScript0(parentElement);
+;
+		};
+	;
+		hdInitScripts0(parentElement.querySelector("#ByteArrayParam0"));
+	</script>
+</div>

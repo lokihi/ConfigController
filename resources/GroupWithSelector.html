@@ -1,0 +1,434 @@
+<div class="Config">
+	<style>.Tooltip
+		{
+			visibility: hidden;
+			opacity: 0;
+			background-color: rgb(160, 170, 180);
+			color: whitesmoke;
+			border-radius: 0.25em;
+			text-align: center;
+			padding: 0.5em;
+			bottom: -0.5em;
+			left: 105%;
+			position: absolute;
+			z-index: 1;
+			width: max-content;
+			max-width: 200px;
+		}
+	*[data-i-has-tooltip]
+		{
+			position: relative;
+			border-bottom: 1px dotted black;
+		}
+	*[data-i-has-tooltip]:hover > .Tooltip
+		{
+			visibility: visible;
+			opacity: 1;
+		}
+	.ConfigTitle
+		{
+			text-align: center;
+			font-size: 1.5em;
+			margin: 1em;
+		}
+	.InfoNamed
+		{
+			margin: 1em;
+		}
+	.InfoNamedValue
+		{
+			width: 100%;
+		}
+	.InfoNamedCaption
+		{
+			text-align: left;
+		}
+	.InfoNamedValue, .InfoNamedRow, .InfoNamedColumn
+		{
+			border: 1px solid black;
+			border-collapse: collapse;
+		}
+	.GroupParam
+		{
+			margin: 0.25em;
+			min-width: 0;
+		}
+	.GroupParam:hover
+		{
+			border: 2px solid lightskyblue;
+		}
+	.NumericParam
+		{
+			display: grid;
+			grid-template-columns: 50% 50%;
+			margin: 0.25em;
+			justify-items: start;
+		}
+	.NumericParamValue
+		{
+			width: 100%;
+		}
+	.NumericParam[data-i-draw-only-value]
+		{
+			grid-template-columns: 100%;
+			justify-items: center;
+		}
+	.SelectorParamClass
+		{
+			display: grid;
+			grid-template-columns: 50% 50%;
+			margin: 0.25em;
+			align-items: center;
+		}
+	.SelectorParamNameClass
+		{
+			width: 100%;
+		}
+	.SelectorParamValueClass
+		{
+			display: table;
+			width: 100%;
+		}
+	.ElementParam
+		{
+			display: grid;
+			grid-template-columns: 50% 50%;
+			margin: 0.25em;
+			justify-items: start;
+		}
+	.ElementParamValue
+		{
+			width: 100%;
+		}
+	.ElementParam[data-i-draw-only-value]
+		{
+			grid-template-columns: 100%;
+			justify-items: center;
+		}
+	.FlagParam
+		{
+			display: grid;
+			grid-template-columns: 100%;
+			margin: 0.25em;
+			justify-items: start;
+		}
+	.FlagParam[data-i-draw-only-value]
+		{
+			margin: 0em;
+		}
+	.FlagParamOption:hover
+		{
+			background-color: lightskyblue;
+		}
+	.BoolParam
+		{
+			display: grid;
+			grid-template-columns: 50% 50%;
+			margin: 0.25em;
+			justify-items: start;
+		}
+	.BoolParam[data-i-draw-only-value]
+		{
+			grid-template-columns: 100%;
+			justify-items: center;
+		}
+	.NumericRangeParam
+		{
+			display: grid;
+			grid-template-columns: 50% 50%;
+			margin: 0.25em;
+			justify-items: start;
+		}
+	.NumericRangeParamValue
+		{
+			display: grid;
+			grid-template-columns: 45% 10% 45%;
+			width: 100%;
+		}
+	.NumericRangeParamValue input
+		{
+			min-width: 0em;
+		}
+	.NumericRangeParamValueSeparator
+		{
+			text-align: center;
+		}
+	.NumericRangeParam[data-i-draw-only-value]
+		{
+			grid-template-columns: 100%;
+			justify-items: center;
+		}
+	</style>
+	<h2 class="ConfigTitle">DefaultConfig</h2>
+	<div class="InfoNamed">
+		<table class="InfoNamedValue">
+			<caption class="InfoNamedCaption">Свойства конфигурации</caption>
+			<tr class="InfoNamedRow" id="InfoNamedRow#0">
+				<td class="InfoNamedColumn" id="InfoNamedColumn#0">type</td>
+				<td class="InfoNamedColumn" id="InfoNamedColumn#1">Test</td>
+			</tr>
+		</table>
+	</div>
+	<fieldset class="GroupParam" id="GroupParam0" data-i-nested-param>
+		<legend class="GroupParamName" data-i-has-tooltip id="GroupParamName0">
+			Name
+			<span class="Tooltip">About</span>
+		</legend>
+		<div class="NumericParam" id="NumericParam1">
+			<label class="NumericParamName" data-i-has-tooltip id="NumericParamName1">
+				Name [Dimension]
+				<span class="Tooltip">About</span>
+			</label>
+			<input type="number" min="-100" class="NumericParamValue" data-i-param-uid="1" id="NumericParamValue1" data-i-param-value inputmode="numeric" value="90" max="100" step="10">
+		</div>
+		<div class="SelectorParamClass" data-i-param-uid="2" id="SelectorParamClass2" data-i-nested-param>
+			<select class="SelectorParamNameClass" data-i-param-value>
+				<option class="SelectorParamNameOptionClass" selected>Name [Dimension]</option>
+				<option class="SelectorParamNameOptionClass">Name [Dimension]</option>
+				<option class="SelectorParamNameOptionClass">Name [Dimension]</option>
+				<option class="SelectorParamNameOptionClass">Name [Dimension]</option>
+				<option class="SelectorParamNameOptionClass">Name [Dimension]</option>
+			</select>
+			<div class="SelectorParamValueClass" data-i-nested-param>
+				<div class="NumericParam" data-i-draw-only-value>
+					<input type="number" min="-100" class="NumericParamValue" data-i-param-value inputmode="numeric" value="90" max="100" step="10">
+				</div>
+				<div class="ElementParam" data-i-draw-only-value>
+					<select class="ElementParamValue" data-i-param-value>
+						<option class="ElementParamOption" selected>-5</option>
+						<option class="ElementParamOption">-4</option>
+						<option class="ElementParamOption">-3</option>
+						<option class="ElementParamOption">-2</option>
+						<option class="ElementParamOption">-1</option>
+						<option class="ElementParamOption">0</option>
+						<option class="ElementParamOption">1</option>
+						<option class="ElementParamOption">2</option>
+						<option class="ElementParamOption">3</option>
+						<option class="ElementParamOption">4</option>
+						<option class="ElementParamOption">5</option>
+					</select>
+				</div>
+				<details class="FlagParam" data-i-draw-only-value>
+					<summary class="FlagParamName">
+						<span data-i-has-tooltip>
+							Name
+							<span class="Tooltip">About</span>
+						</span>
+					</summary>
+					<ul class="FlagParamValue" data-i-nested-param>
+						<li class="FlagParamOption">
+							<input type="checkbox" class="FlagParamOptionValue" data-i-param-value>
+							<label class="FlagParamOptionName" for="FlagParamOptionValue5#0">This</label>
+						</li>
+						<li class="FlagParamOption">
+							<input type="checkbox" checked class="FlagParamOptionValue" data-i-param-value>
+							<label class="FlagParamOptionName" for="FlagParamOptionValue5#1">is</label>
+						</li>
+						<li class="FlagParamOption">
+							<input type="checkbox" class="FlagParamOptionValue" data-i-param-value>
+							<label class="FlagParamOptionName" for="FlagParamOptionValue5#2">Hard</label>
+						</li>
+						<li class="FlagParamOption">
+							<input type="checkbox" checked class="FlagParamOptionValue" data-i-param-value>
+							<label class="FlagParamOptionName" for="FlagParamOptionValue5#3">Decisions</label>
+						</li>
+					</ul>
+				</details>
+				<div class="BoolParam" data-i-draw-only-value>
+					<input type="checkbox" class="BoolParamValue" data-i-param-value checked>
+				</div>
+				<div class="NumericRangeParam" data-i-draw-only-value>
+					<div class="NumericRangeParamValue" data-i-nested-param>
+						<input type="number" min="-100" class="NumericRangeParamValueFrom" data-i-param-value inputmode="numeric" value="-50" max="100" step="10">
+						<label class="NumericRangeParamValueSeparator">-</label>
+						<input type="number" min="-100" class="NumericRangeParamValueTo" data-i-param-value inputmode="numeric" value="50" max="100" step="10">
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="ElementParam" id="ElementParam8">
+			<label class="ElementParamName" data-i-has-tooltip id="ElementParamName8">
+				Name [Dimension]
+				<span class="Tooltip">About</span>
+			</label>
+			<select class="ElementParamValue" id="ElementParamValue8" data-i-param-uid="8" data-i-param-value>
+				<option class="ElementParamOption" id="ElementParamOption8#1" selected>This</option>
+				<option class="ElementParamOption" id="ElementParamOption8#2">is</option>
+				<option class="ElementParamOption" id="ElementParamOption8#3">HardDecisions</option>
+			</select>
+		</div>
+	</fieldset>
+	<script>
+		
+		const hdNumericScript1 = function(parentElement)
+		{
+			const switchToNumber = function(event)
+			{
+				const target = event.target;
+				const text = target.value.replace(/[^0-9\-]/g, "");
+				target.type = "number";
+				target.value = Number(text);
+			};
+			const switchToTextImpl = function(target)
+			{
+				target.type = "text";
+				let text = target.value.replace(/[^0-9\-]/g, "");
+				text = Number(text).toLocaleString('en');
+				target.value = text.replace(/,/g, "'");;
+			};
+			const switchToText = function(event)
+			{
+				switchToTextImpl(event.target);
+			};
+			const pasteFromClipboard = function(event)
+			{
+				event.preventDefault();
+				let text = event.clipboardData.getData("Text");
+				text = text.replace(/[^0-9\-]/g, "");
+				event.target.value = Number(text);
+			};
+			const addEventListenersForNumericFunction = function(parentElement)
+			{
+				for (let element of parentElement.querySelectorAll(".NumericParamValue"))
+				{
+					element.addEventListener("focus", switchToNumber);
+					element.addEventListener("blur", switchToText);
+					element.addEventListener("paste", pasteFromClipboard)
+					switchToTextImpl(element);
+				}
+			};
+			addEventListenersForNumericFunction(parentElement);
+		};
+	;
+		
+		const hdInitScripts1 = function(parentElement)
+		{
+			hdNumericScript1(parentElement);
+;
+		};
+	;
+		hdInitScripts1(parentElement.querySelector("#NumericParam1"));
+	
+		
+		const hdSelectorScript2 = function(parentElement)
+		{
+			const selectorIndexChangedFunction = function(selectElement)
+			{
+				const index = Number(selectElement.selectedIndex);
+				let currentIndex = 0;
+				for (const element of selectElement.parentNode.children[1].children)
+				{
+					const isVisible = (currentIndex == index);
+					if (isVisible)
+						element.style.display = "table-cell";
+					else
+						element.style.display = "none";
+					++currentIndex;
+				}
+			};
+			const addEventListenersForSelectorFunction = function(parentElement)
+			{
+				for (let selectElement of parentElement.querySelectorAll(".SelectorParamNameClass"))
+				{
+					selectElement.addEventListener("change", function(event)
+					{
+						selectorIndexChangedFunction(event.target);
+					});
+					selectorIndexChangedFunction(selectElement);
+				}
+			};
+			addEventListenersForSelectorFunction(parentElement);
+		};
+	
+		const hdNumericScript2 = function(parentElement)
+		{
+			const switchToNumber = function(event)
+			{
+				const target = event.target;
+				const text = target.value.replace(/[^0-9\-]/g, "");
+				target.type = "number";
+				target.value = Number(text);
+			};
+			const switchToTextImpl = function(target)
+			{
+				target.type = "text";
+				let text = target.value.replace(/[^0-9\-]/g, "");
+				text = Number(text).toLocaleString('en');
+				target.value = text.replace(/,/g, "'");;
+			};
+			const switchToText = function(event)
+			{
+				switchToTextImpl(event.target);
+			};
+			const pasteFromClipboard = function(event)
+			{
+				event.preventDefault();
+				let text = event.clipboardData.getData("Text");
+				text = text.replace(/[^0-9\-]/g, "");
+				event.target.value = Number(text);
+			};
+			const addEventListenersForNumericFunction = function(parentElement)
+			{
+				for (let element of parentElement.querySelectorAll(".NumericParamValue"))
+				{
+					element.addEventListener("focus", switchToNumber);
+					element.addEventListener("blur", switchToText);
+					element.addEventListener("paste", pasteFromClipboard)
+					switchToTextImpl(element);
+				}
+			};
+			addEventListenersForNumericFunction(parentElement);
+		};
+	
+		const hdNumericRangeScript2 = function(parentElement)
+		{
+			const switchToNumber = function(event)
+			{
+				const target = event.target;
+				const text = target.value.replace(/[^0-9\-]/g, "");
+				target.type = "number";
+				target.value = Number(text);
+			};
+			const switchToTextImpl = function(target)
+			{
+				target.type = "text";
+				let text = target.value.replace(/[^0-9\-]/g, "");
+				text = Number(text).toLocaleString('en');
+				target.value = text.replace(/,/g, "'");;
+			};
+			const switchToText = function(event)
+			{
+				switchToTextImpl(event.target);
+			};
+			const pasteFromClipboard = function(event)
+			{
+				event.preventDefault();
+				let text = event.clipboardData.getData("Text");
+				text = text.replace(/[^0-9\-]/g, "");
+				event.target.value = Number(text);
+			};
+			const addEventListenersForNumericFunction = function(parentElement)
+			{
+				for (let element of parentElement.querySelectorAll(".NumericRangeParamValueFrom, .NumericRangeParamValueTo"))
+				{
+					element.addEventListener("focus", switchToNumber);
+					element.addEventListener("blur", switchToText);
+					element.addEventListener("paste", pasteFromClipboard)
+					switchToTextImpl(element);
+				}
+			};
+			addEventListenersForNumericFunction(parentElement);
+		};
+	;
+		
+		const hdInitScripts2 = function(parentElement)
+		{
+			hdSelectorScript2(parentElement);
+hdNumericScript2(parentElement);
+hdNumericRangeScript2(parentElement);
+;
+		};
+	;
+		hdInitScripts2(parentElement.querySelector("#SelectorParamClass2"));
+	</script>
+</div>

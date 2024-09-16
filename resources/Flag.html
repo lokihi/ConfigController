@@ -1,0 +1,103 @@
+<div class="Config">
+	<style>.Tooltip
+		{
+			visibility: hidden;
+			opacity: 0;
+			background-color: rgb(160, 170, 180);
+			color: whitesmoke;
+			border-radius: 0.25em;
+			text-align: center;
+			padding: 0.5em;
+			bottom: -0.5em;
+			left: 105%;
+			position: absolute;
+			z-index: 1;
+			width: max-content;
+			max-width: 200px;
+		}
+	*[data-i-has-tooltip]
+		{
+			position: relative;
+			border-bottom: 1px dotted black;
+		}
+	*[data-i-has-tooltip]:hover > .Tooltip
+		{
+			visibility: visible;
+			opacity: 1;
+		}
+	.ConfigTitle
+		{
+			text-align: center;
+			font-size: 1.5em;
+			margin: 1em;
+		}
+	.InfoNamed
+		{
+			margin: 1em;
+		}
+	.InfoNamedValue
+		{
+			width: 100%;
+		}
+	.InfoNamedCaption
+		{
+			text-align: left;
+		}
+	.InfoNamedValue, .InfoNamedRow, .InfoNamedColumn
+		{
+			border: 1px solid black;
+			border-collapse: collapse;
+		}
+	.FlagParam
+		{
+			display: grid;
+			grid-template-columns: 100%;
+			margin: 0.25em;
+			justify-items: start;
+		}
+	.FlagParam[data-i-draw-only-value]
+		{
+			margin: 0em;
+		}
+	.FlagParamOption:hover
+		{
+			background-color: lightskyblue;
+		}
+	</style>
+	<h2 class="ConfigTitle">DefaultConfig</h2>
+	<div class="InfoNamed">
+		<table class="InfoNamedValue">
+			<caption class="InfoNamedCaption">Свойства конфигурации</caption>
+			<tr class="InfoNamedRow" id="InfoNamedRow#0">
+				<td class="InfoNamedColumn" id="InfoNamedColumn#0">type</td>
+				<td class="InfoNamedColumn" id="InfoNamedColumn#1">Test</td>
+			</tr>
+		</table>
+	</div>
+	<details class="FlagParam" id="FlagParam0">
+		<summary class="FlagParamName" id="FlagParamName0">
+			<span data-i-has-tooltip>
+				Name
+				<span class="Tooltip">About</span>
+			</span>
+		</summary>
+		<ul class="FlagParamValue" data-i-param-uid="0" id="FlagParamValue0" data-i-nested-param>
+			<li class="FlagParamOption" id="FlagParamOption0#0">
+				<input type="checkbox" class="FlagParamOptionValue" id="FlagParamOptionValue0#0" data-i-param-value>
+				<label class="FlagParamOptionName" id="FlagParamOptionName0#0" for="FlagParamOptionValue0#0">This</label>
+			</li>
+			<li class="FlagParamOption" id="FlagParamOption0#1">
+				<input type="checkbox" checked class="FlagParamOptionValue" id="FlagParamOptionValue0#1" data-i-param-value>
+				<label class="FlagParamOptionName" for="FlagParamOptionValue0#1" id="FlagParamOptionName0#1">is</label>
+			</li>
+			<li class="FlagParamOption" id="FlagParamOption0#2">
+				<input type="checkbox" class="FlagParamOptionValue" id="FlagParamOptionValue0#2" data-i-param-value>
+				<label class="FlagParamOptionName" id="FlagParamOptionName0#2" for="FlagParamOptionValue0#2">Hard</label>
+			</li>
+			<li class="FlagParamOption" id="FlagParamOption0#3">
+				<input type="checkbox" checked class="FlagParamOptionValue" id="FlagParamOptionValue0#3" data-i-param-value>
+				<label class="FlagParamOptionName" for="FlagParamOptionValue0#3" id="FlagParamOptionName0#3">Decisions</label>
+			</li>
+		</ul>
+	</details>
+</div>

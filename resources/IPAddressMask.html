@@ -1,0 +1,85 @@
+<div class="Config">
+	<style>.Tooltip
+		{
+			visibility: hidden;
+			opacity: 0;
+			background-color: rgb(160, 170, 180);
+			color: whitesmoke;
+			border-radius: 0.25em;
+			text-align: center;
+			padding: 0.5em;
+			bottom: -0.5em;
+			left: 105%;
+			position: absolute;
+			z-index: 1;
+			width: max-content;
+			max-width: 200px;
+		}
+	*[data-i-has-tooltip]
+		{
+			position: relative;
+			border-bottom: 1px dotted black;
+		}
+	*[data-i-has-tooltip]:hover > .Tooltip
+		{
+			visibility: visible;
+			opacity: 1;
+		}
+	.ConfigTitle
+		{
+			text-align: center;
+			font-size: 1.5em;
+			margin: 1em;
+		}
+	.InfoNamed
+		{
+			margin: 1em;
+		}
+	.InfoNamedValue
+		{
+			width: 100%;
+		}
+	.InfoNamedCaption
+		{
+			text-align: left;
+		}
+	.InfoNamedValue, .InfoNamedRow, .InfoNamedColumn
+		{
+			border: 1px solid black;
+			border-collapse: collapse;
+		}
+	.IpAddressMaskParam
+		{
+			display: grid;
+			grid-template-columns: 50% 50%;
+			margin: 0.25em;
+			justify-items: start;
+		}
+	.IpAddressMaskParamValue
+		{
+			width: 100%;
+		}
+	.IpAddressMaskParam[data-i-draw-only-value]
+		{
+			grid-template-columns: 100%;
+			justify-items: center;
+		}
+	</style>
+	<h2 class="ConfigTitle">DefaultConfig</h2>
+	<div class="InfoNamed">
+		<table class="InfoNamedValue">
+			<caption class="InfoNamedCaption">Свойства конфигурации</caption>
+			<tr class="InfoNamedRow" id="InfoNamedRow#0">
+				<td class="InfoNamedColumn" id="InfoNamedColumn#0">type</td>
+				<td class="InfoNamedColumn" id="InfoNamedColumn#1">Test</td>
+			</tr>
+		</table>
+	</div>
+	<div class="IpAddressMaskParam" id="IpAddressMaskParam0">
+		<label class="IpAddressMaskParamName" id="IpAddressMaskParamName0" data-i-has-tooltip>
+			Name [Dimension]
+			<span class="Tooltip">About</span>
+		</label>
+		<input type="number" min="0" class="IpAddressMaskParamValue" data-i-param-uid="0" id="IpAddressMaskParamValue0" data-i-param-value max="32" value="18">
+	</div>
+</div>
