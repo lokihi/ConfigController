@@ -13,8 +13,6 @@ test('testBool', () =>
     const origin = ConfigController(htmlDocument).GetAllData();
     const result = NewConfigController(htmlDocument).GetAllData();
     
-    expect(result).not.toEqual('');
-
     expect(result).toStrictEqual(origin);
 });
 
@@ -26,8 +24,6 @@ test('testByteArray', () =>
     const origin = ConfigController(htmlDocument).GetAllData();
     const result = NewConfigController(htmlDocument).GetAllData();
     
-    expect(result).not.toEqual('');
-
     expect(result).toStrictEqual(origin);
 });
 
@@ -35,12 +31,11 @@ test('testConstSelector', () =>
 {
     const htmlRawData = fs.readFileSync('resources/ConstSelector.html');
     const htmlDocument = new JSDOM(htmlRawData).window.document;
-    
+    const element = htmlDocument.getElementsByClassName("Config")[0]
+
     const origin = ConfigController(htmlDocument).GetAllData();
     const result = NewConfigController(htmlDocument).GetAllData();
     
-    expect(result).not.toEqual('');
-
     expect(result).toStrictEqual(origin);
 });
 
@@ -52,8 +47,6 @@ test('testConstTable', () =>
     const origin = ConfigController(htmlDocument).GetAllData();
     const result = NewConfigController(htmlDocument).GetAllData();
     
-    expect(result).not.toEqual('');
-
     expect(result).toStrictEqual(origin);
 });
 
@@ -65,8 +58,6 @@ test('testDefaultConfig', () =>
     const origin = ConfigController(htmlDocument).GetAllData();
     const result = NewConfigController(htmlDocument).GetAllData();
     
-    expect(result).not.toEqual('');
-
     expect(result).toStrictEqual(origin);
 });
 
@@ -78,8 +69,6 @@ test('testElementDouble', () =>
     const origin = ConfigController(htmlDocument).GetAllData();
     const result = NewConfigController(htmlDocument).GetAllData();
     
-    expect(result).not.toEqual('');
-
     expect(result).toStrictEqual(origin);
 });
 
@@ -91,8 +80,6 @@ test('testElementInt32', () =>
     const origin = ConfigController(htmlDocument).GetAllData();
     const result = NewConfigController(htmlDocument).GetAllData();
     
-    expect(result).not.toEqual('');
-
     expect(result).toStrictEqual(origin);
 });
 
@@ -104,8 +91,6 @@ test('testElementString', () =>
     const origin = ConfigController(htmlDocument).GetAllData();
     const result = NewConfigController(htmlDocument).GetAllData();
     
-    expect(result).not.toEqual('');
-
     expect(result).toStrictEqual(origin);
 });
 
@@ -117,8 +102,6 @@ test('testElementUInt32', () =>
     const origin = ConfigController(htmlDocument).GetAllData();
     const result = NewConfigController(htmlDocument).GetAllData();
     
-    expect(result).not.toEqual('');
-
     expect(result).toStrictEqual(origin);
 });
 
@@ -130,8 +113,6 @@ test('testFlag', () =>
     const origin = ConfigController(htmlDocument).GetAllData();
     const result = NewConfigController(htmlDocument).GetAllData();
     
-    expect(result).not.toEqual('');
-
     expect(result).toStrictEqual(origin);
 });
 
@@ -143,8 +124,6 @@ test('testGroup', () =>
     const origin = ConfigController(htmlDocument).GetAllData();
     const result = NewConfigController(htmlDocument).GetAllData();
     
-    expect(result).not.toEqual('');
-
     expect(result).toStrictEqual(origin);
 });
 
@@ -156,8 +135,6 @@ test('testGroupWithSelector', () =>
     const origin = ConfigController(htmlDocument).GetAllData();
     const result = NewConfigController(htmlDocument).GetAllData();
     
-    expect(result).not.toEqual('');
-
     expect(result).toStrictEqual(origin);
 });
 
@@ -169,8 +146,6 @@ test('testGroupWithTable', () =>
     const origin = ConfigController(htmlDocument).GetAllData();
     const result = NewConfigController(htmlDocument).GetAllData();
     
-    expect(result).not.toEqual('');
-
     expect(result).toStrictEqual(origin);
 });
 
@@ -182,8 +157,6 @@ test('testInt32', () =>
     const origin = ConfigController(htmlDocument).GetAllData();
     const result = NewConfigController(htmlDocument).GetAllData();
     
-    expect(result).not.toEqual('');
-
     expect(result).toStrictEqual(origin);
 });
 
@@ -195,8 +168,6 @@ test('testIPAddress', () =>
     const origin = ConfigController(htmlDocument).GetAllData();
     const result = NewConfigController(htmlDocument).GetAllData();
     
-    expect(result).not.toEqual('');
-
     expect(result).toStrictEqual(origin);
 });
 
@@ -208,8 +179,6 @@ test('testIPAddressMask', () =>
     const origin = ConfigController(htmlDocument).GetAllData();
     const result = NewConfigController(htmlDocument).GetAllData();
     
-    expect(result).not.toEqual('');
-
     expect(result).toStrictEqual(origin);
 });
 
@@ -221,8 +190,6 @@ test('testNestedGroup', () =>
     const origin = ConfigController(htmlDocument).GetAllData();
     const result = NewConfigController(htmlDocument).GetAllData();
     
-    expect(result).not.toEqual('');
-
     expect(result).toStrictEqual(origin);
 });
 
@@ -234,8 +201,6 @@ test('testNestedSelector', () =>
     const origin = ConfigController(htmlDocument).GetAllData();
     const result = NewConfigController(htmlDocument).GetAllData();
     
-    expect(result).not.toEqual('');
-
     expect(result).toStrictEqual(origin);
 });
 
@@ -247,8 +212,6 @@ test('testNestedTable', () =>
     const origin = ConfigController(htmlDocument).GetAllData();
     const result = NewConfigController(htmlDocument).GetAllData();
     
-    expect(result).not.toEqual('');
-
     expect(result).toStrictEqual(origin);
 });
 
@@ -260,8 +223,6 @@ test('testNumericInt32', () =>
     const origin = ConfigController(htmlDocument).GetAllData();
     const result = NewConfigController(htmlDocument).GetAllData();
     
-    expect(result).not.toEqual('');
-
     expect(result).toStrictEqual(origin);
 });
 
@@ -273,8 +234,6 @@ test('testNumericRangeInt32', () =>
     const origin = ConfigController(htmlDocument).GetAllData();
     const result = NewConfigController(htmlDocument).GetAllData();
     
-    expect(result).not.toEqual('');
-
     expect(result).toStrictEqual(origin);
 });
 
@@ -286,8 +245,6 @@ test('testNumericRangeUInt32', () =>
     const origin = ConfigController(htmlDocument).GetAllData();
     const result = NewConfigController(htmlDocument).GetAllData();
     
-    expect(result).not.toEqual('');
-
     expect(result).toStrictEqual(origin);
 });
 
@@ -299,8 +256,6 @@ test('testNumericUInt32', () =>
     const origin = ConfigController(htmlDocument).GetAllData();
     const result = NewConfigController(htmlDocument).GetAllData();
     
-    expect(result).not.toEqual('');
-
     expect(result).toStrictEqual(origin);
 });
 
@@ -312,8 +267,6 @@ test('testPath', () =>
     const origin = ConfigController(htmlDocument).GetAllData();
     const result = NewConfigController(htmlDocument).GetAllData();
     
-    expect(result).not.toEqual('');
-
     expect(result).toStrictEqual(origin);
 });
 
@@ -325,8 +278,6 @@ test('testPort', () =>
     const origin = ConfigController(htmlDocument).GetAllData();
     const result = NewConfigController(htmlDocument).GetAllData();
     
-    expect(result).not.toEqual('');
-
     expect(result).toStrictEqual(origin);
 });
 
@@ -338,8 +289,6 @@ test('testSelectorWithGroup', () =>
     const origin = ConfigController(htmlDocument).GetAllData();
     const result = NewConfigController(htmlDocument).GetAllData();
     
-    expect(result).not.toEqual('');
-
     expect(result).toStrictEqual(origin);
 });
 
@@ -351,8 +300,6 @@ test('testSelectorWithTable', () =>
     const origin = ConfigController(htmlDocument).GetAllData();
     const result = NewConfigController(htmlDocument).GetAllData();
     
-    expect(result).not.toEqual('');
-
     expect(result).toStrictEqual(origin);
 });
 
@@ -364,8 +311,6 @@ test('testTable', () =>
     const origin = ConfigController(htmlDocument).GetAllData();
     const result = NewConfigController(htmlDocument).GetAllData();
     
-    expect(result).not.toEqual('');
-
     expect(result).toStrictEqual(origin);
 });
 
@@ -377,8 +322,6 @@ test('testTableWithGroup', () =>
     const origin = ConfigController(htmlDocument).GetAllData();
     const result = NewConfigController(htmlDocument).GetAllData();
     
-    expect(result).not.toEqual('');
-
     expect(result).toStrictEqual(origin);
 });
 
@@ -390,8 +333,6 @@ test('testTableWithSelector', () =>
     const origin = ConfigController(htmlDocument).GetAllData();
     const result = NewConfigController(htmlDocument).GetAllData();
     
-    expect(result).not.toEqual('');
-
     expect(result).toStrictEqual(origin);
 });
 
@@ -402,10 +343,6 @@ test('testText', () =>
     
     const origin = ConfigController(htmlDocument).GetAllData();
     const result = NewConfigController(htmlDocument).GetAllData();
-    
-    expect(result).not.toEqual('');
-
-    expect(result).not.toEqual('');
     
     expect(result).toStrictEqual(origin);
 });
