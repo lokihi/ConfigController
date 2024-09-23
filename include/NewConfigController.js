@@ -7,46 +7,33 @@ const NewConfigController = function(parentElement)
 
 const _parentElement = parentElement;
 
-const GetUidToElements = function(parentElement)
-{
-	const uidToElements = {};
-	const elements = parentElement.querySelectorAll("[" + CustomParamAttributes.IParamUid + "]");
-	elements.forEach(function (element)
-	{
-		var uid = element.getAttribute(CustomParamAttributes.IParamUid);
-		if (!uidToElements[uid])
-		{
-			uidToElements[uid] = [];
-		}
-		uidToElements[uid].push(element);
-	});
-	return uidToElements;
-}
 
-const GetElementsStructure = function(parentElement)
+const GetNestedElementValue = function(parentElement)
 {
-	const childElements = [];
+	let values = [];
 	for (const child of parentElement.children)
-	{
-		if (child.hasAttribute(CustomParamAttributes.IParamValue))
 		{
-			childElements.push([ child, [] ]);
-		}
-		else
-		{
-			const nestedChildElement = GetElementsStructure(child);
-			if (nestedChildElement != null)
+			if (child.hasAttribute(CustomParamAttributes.IParamValue))
 			{
-				if (child.hasAttribute(CustomParamAttributes.INestedParam))
-					childElements.push([ child, nestedChildElement ]);
-				else
-					childElements.push([ null, nestedChildElement ]);
+				values.push(GetValue(child));
 			}
-		}
+			else
+			{
+				const nestedValues = GetNestedElementValue(child);
+				if (nestedValues !== null)
+				{
+					if (child.hasAttribute(CustomParamAttributes.INestedParam))
+					{
+						values.push(nestedValues);
+					}
+					else
+					{
+						values = values.concat(nestedValues);
+					}
+				}
+			}
 	}
-	if (childElements.length == 0)
-		return null;
-	return childElements;
+	return values.length !==0 ? values : null;
 }
 
 const GetValue = function(element)
@@ -69,66 +56,29 @@ const GetValue = function(element)
 	}
 	return null;
 }
-const GetValuesFromElementStructure = function(elementsToStructures)
-{
-	const values = [];
-	for (const [element, structure] of elementsToStructures)
-	{
-		const elementHasValue = (element != null && element.hasAttribute(CustomParamAttributes.IParamValue));
-		if (elementHasValue)
-		{
-			values.push(GetValue(element));
-		}
-		else
-		{
-			const elementValues = GetValuesFromElementStructure(structure);
-			if (elementValues != null)
-			{
-				if (element != null)
-				{
-					values.push(elementValues);
-				}
-				else
-				{
-					for (const value of elementValues)
-						values.push(value);
-				}
-			}
-		}
-	}
-	return values;
-}
-
-const GetNestedValue = function(nestedElement)
-{
-	const elementStructure = GetElementsStructure(nestedElement);
-	if (elementStructure == null)
-		return [];
-	return GetValuesFromElementStructure(elementStructure);
-}
 
 const GetUidToValues = function(parentElement)
 {
 	const uidToValues = {};
-	const uidToElements = GetUidToElements(parentElement);
-	for (const uid in uidToElements)
+	const elements = parentElement.querySelectorAll("[" + CustomParamAttributes.IParamUid + "]");
+
+	elements.forEach(function (element)
 	{
+		const uid = element.getAttribute(CustomParamAttributes.IParamUid);
 		if (!uidToValues[uid])
 		{
 			uidToValues[uid] = [];
 		}
-		for (const element of uidToElements[uid])
+		if (element.hasAttribute(CustomParamAttributes.IParamValue))
 		{
-			if (element.hasAttribute(CustomParamAttributes.IParamValue))
-			{
-				uidToValues[uid].push(GetValue(element));
-			}
-			else if (element.hasAttribute(CustomParamAttributes.INestedParam))
-			{
-				uidToValues[uid].push(GetNestedValue(element));
-			}
+			uidToValues[uid].push(GetValue(element));
 		}
-	}
+		else if (element.hasAttribute(CustomParamAttributes.INestedParam))
+		{
+			uidToValues[uid].push(GetNestedElementValue(element));
+		}
+	});
+
 	return uidToValues;
 }
 
