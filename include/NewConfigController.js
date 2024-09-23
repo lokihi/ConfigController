@@ -22,13 +22,13 @@ const GetNestedElementValue = function(parentElement)
 				const nestedValues = GetNestedElementValue(child);
 				if (nestedValues !== null)
 				{
-					if (Array.isArray(nestedValues) && !child.hasAttribute(CustomParamAttributes.INestedParam))
+					if (child.hasAttribute(CustomParamAttributes.INestedParam))
 					{
-						values = [...values, ...nestedValues];
+						values.push(nestedValues);
 					}
 					else
 					{
-						values.push(nestedValues);
+						values = values.concat(nestedValues);
 					}
 				}
 			}
