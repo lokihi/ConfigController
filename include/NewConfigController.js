@@ -10,7 +10,7 @@ const _parentElement = parentElement;
 
 const GetNestedElementValue = function(parentElement)
 {
-	var values = [];
+	let values = [];
 	for (const child of parentElement.children)
 		{
 			if (child.hasAttribute(CustomParamAttributes.IParamValue))
@@ -22,29 +22,20 @@ const GetNestedElementValue = function(parentElement)
 				const nestedValues = GetNestedElementValue(child);
 				if (nestedValues!==null)
 				{
-					if (Array.isArray(nestedValues) && nestedValues.length===1)
+					if (Array.isArray(nestedValues) && nestedValues.length===1 || 
+						!child.hasAttribute(CustomParamAttributes.INestedParam))
 					{
-						values = values.concat(nestedValues);
-					}
-					else if (child.hasAttribute(CustomParamAttributes.INestedParam))
-					{
-						values.push(nestedValues);
+						values = [...values, ...nestedValues];
 					}
 					else
 					{
-						values = values.concat(nestedValues);
+						values.push(nestedValues);
 					}
 				}
 			}
 	}
-	if (values.length!==0)
-	{
-		return values;
-	}
-	else
-	{
-		return null;
-	}
+	const output = values.length!==0 ? values : null;
+	return output;
 }
 
 const GetValue = function(element)
@@ -75,7 +66,7 @@ const GetUidToValues = function(parentElement)
 
 	elements.forEach(function (element)
 	{
-		var uid = element.getAttribute(CustomParamAttributes.IParamUid);
+		const uid = element.getAttribute(CustomParamAttributes.IParamUid);
 		if (!uidToValues[uid])
 		{
 			uidToValues[uid] = [];
