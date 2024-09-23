@@ -20,10 +20,9 @@ const GetNestedElementValue = function(parentElement)
 			else
 			{
 				const nestedValues = GetNestedElementValue(child);
-				if (nestedValues!==null)
+				if (nestedValues !== null)
 				{
-					if (Array.isArray(nestedValues) && nestedValues.length===1 || 
-						!child.hasAttribute(CustomParamAttributes.INestedParam))
+					if (Array.isArray(nestedValues) && !child.hasAttribute(CustomParamAttributes.INestedParam))
 					{
 						values = [...values, ...nestedValues];
 					}
@@ -34,8 +33,7 @@ const GetNestedElementValue = function(parentElement)
 				}
 			}
 	}
-	const output = values.length!==0 ? values : null;
-	return output;
+	return values.length !==0 ? values : null;
 }
 
 const GetValue = function(element)
